@@ -8,7 +8,7 @@ module.exports = merge(common, {
 	devtool: 'inline-source-map',
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: '[APP NAME]',
+			title: 'Chicken Tndr',
 			meta: [
 				// viewport meta tag for responsiveness / media queries
 				{
@@ -16,7 +16,8 @@ module.exports = merge(common, {
 					content: 'width=device-width, initial-scale=1',
 				},
 			],
-			template: require('html-webpack-template'),
+			// template: require('html-webpack-template'),
+			template: './src/public/index.html',
 			favicon: './src/public/favicon.ico',
 			appMountId: 'root',
 		}),
