@@ -2,6 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import DemoContainer from './Demo';
+import '../assets/styles.css';
 
 const App: React.FunctionComponent = () => {
 	return (

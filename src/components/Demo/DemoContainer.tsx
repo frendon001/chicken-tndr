@@ -11,7 +11,12 @@ const headerStyle: CSSProperties = {
 const DemoContainer: React.FunctionComponent = () => {
 	return (
 		<div>
-			<h1 style={headerStyle}>React Starter</h1>
+			<h1
+				style={headerStyle}
+				className="text-4xl text-gray-600 uppercase font-bold"
+			>
+				React Starter
+			</h1>
 		</div>
 	);
 };
