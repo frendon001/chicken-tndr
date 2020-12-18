@@ -1,15 +1,15 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import DemoContainer from './Demo';
-import '../assets/styles.css';
+import MainPage from '../MainPage';
+import '../../assets/styles.css';
 
 const App: React.FunctionComponent = () => {
 	return (
 		<Switch>
-			<Route exact path="/demo" component={DemoContainer} />
+			<Route exact path="/" component={MainPage} />
 			{/* Redirect insures we always have something sensible to render */}
-			<Redirect to="/demo" />
+			<Redirect to="/" />
 		</Switch>
 	);
 };
