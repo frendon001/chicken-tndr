@@ -21,7 +21,6 @@ module.exports = merge(common, {
 					content: 'width=device-width, initial-scale=1',
 				},
 			],
-			// template: require('html-webpack-template'),
 			template: './src/public/index.html',
 			favicon: './src/public/favicon.ico',
 			appMountId: 'root',
