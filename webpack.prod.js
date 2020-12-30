@@ -2,13 +2,18 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
 	mode: 'production',
 	plugins: [
+		new MiniCssExtractPlugin({
+			filename: '[name].bundle.css',
+			chunkFilename: '[id].css',
+		}),
 		new HtmlWebpackPlugin({
 			filename: 'generated.html',
-			title: '[APP NAME]',
+			title: 'Chicken Tndr',
 			meta: [
 				// viewport meta tag for responsiveness / media queries
 				{
@@ -16,7 +21,7 @@ module.exports = merge(common, {
 					content: 'width=device-width, initial-scale=1',
 				},
 			],
-			template: require('html-webpack-template'),
+			template: './src/public/index.html',
 			favicon: './src/public/favicon.ico',
 			appMountId: 'root',
 			minify: {
@@ -26,6 +31,21 @@ module.exports = merge(common, {
 			},
 		}),
 	],
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+					},
+					'css-loader',
+					'postcss-loader',
+				],
+			},
+		],
+	},
 	optimization: {
 		splitChunks: {
 			chunks: 'all',

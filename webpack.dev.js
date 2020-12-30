@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,7 +7,7 @@ module.exports = merge(common, {
 	devtool: 'inline-source-map',
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: '[APP NAME]',
+			title: 'Chicken Tndr',
 			meta: [
 				// viewport meta tag for responsiveness / media queries
 				{
@@ -16,12 +15,20 @@ module.exports = merge(common, {
 					content: 'width=device-width, initial-scale=1',
 				},
 			],
-			template: require('html-webpack-template'),
+			template: './src/public/index.html',
 			favicon: './src/public/favicon.ico',
 			appMountId: 'root',
 		}),
-		new webpack.HotModuleReplacementPlugin(),
 	],
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				exclude: /node_modules/,
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
+			},
+		],
+	},
 	devServer: {
 		hot: true, // enable hot reloading
 		overlay: true, // error overlay
@@ -29,7 +36,12 @@ module.exports = merge(common, {
 			disableDotRule: true,
 		},
 		proxy: {
-			'/api': 'http://0.0.0.0::3030',
+			'/api': {
+				target: 'http://0.0.0.0:3030',
+			},
+			'/healthcheck': {
+				target: 'http://0.0.0.0:3030',
+			},
 		},
 		host: '0.0.0.0', //your ip address
 		port: 8080,

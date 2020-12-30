@@ -111,3 +111,6 @@ dist
 
 # Build Folder
 build
+
+# Dev Keys
+**/config/dev.ts

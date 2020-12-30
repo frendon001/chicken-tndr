@@ -14,42 +14,10 @@ module.exports = {
 	resolve: {
 		modules: ['node_modules', path.join(__dirname, 'src'), 'shared'],
 		// Add `.ts` and `.tsx` as a resolvable extension.
-		extensions: [
-			'.ts',
-			'.tsx',
-			'.js',
-			'.jsx',
-			'.css',
-			'ico',
-			'eot',
-			'ttf',
-			'woff',
-			'woff2',
-			'png',
-			'jpg',
-			'svg',
-		],
+		extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', 'ico', 'eot', 'ttf', 'woff', 'woff2', 'png', 'jpg', 'svg'],
 	},
 	module: {
 		rules: [
-			{
-				test: /\.css$/,
-				exclude: /\.module\.css$/,
-				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-			},
-			{
-				test: /\.module\.css$/,
-				use: [
-					{ loader: 'style-loader' },
-					{
-						loader: 'css-loader',
-						options: {
-							modules: true,
-							localsConvention: 'camelCaseOnly',
-						},
-					},
-				],
-			},
 			{
 				// Include ts, tsx, js, and jsx files.
 				test: /\.(ts|js)x?$/,

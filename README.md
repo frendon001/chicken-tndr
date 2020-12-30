@@ -1,20 +1,19 @@
-# react-typescript-fullstack-starter
+# Chicken Tndr
 
-A starter template for a Full-Stack application with react, typescript, webpack,
-and babel
+An application that uses the yelp to help groups of people select a restaurant.
 
 ## Installation
 
 **1.** Clone or Download the repository
 
 ```
-git clone https://github.com/frendon001/react-typescript-fullstack-starter.git
+git clone https://github.com/frendon001/chicken-tndr.git
 ```
 
 **2.** Install libraries in root directory:
 
 ```
-npm ci
+npm i
 ```
 
 ## Run in Development mode
@@ -53,29 +52,12 @@ npm run start
 -   Prettier
 -   ESLint
 
-## Testing
-
--   TBD
-
 ## Troubleshooting
 
 If validation script fails `npm run validate`.
 
 -   Try running the formatting script to automatically fix formatting issues:
     `npm run format`
-
-If there are issues with VSCode not respecting the tsconfig.json
-
--   Try overriding the default version of Typescript in VSCode by adding the
-    following setting.json configuration on your workspace
--   This will allow VSCode to use the Typescript version specified on the
-    project's package.json instead of the default VSCode version
-
-```JSON
-{
-  "typescript.tsdk": "node_modules/typescript/lib"
-}
-```
 
 # Authors
 
