@@ -26,13 +26,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Error handling
-process.on('uncaughtException', (error: Error) => {
-	console.log(error);
-	console.log('test');
-	process.exit(1);
-});
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-app.use(async (err: any, req: express.Request, res: express.Response, _next: express.NextFunction) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+	if (res.headersSent) {
+		return next(err);
+	}
 	if (err?.stack) {
 		console.error(err.stack);
 	}
