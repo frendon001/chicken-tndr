@@ -1,10 +1,11 @@
 import express from 'express';
 import asyncWrapper from '../../../utils/async-wrapper';
-import bussinessSearch from '../../../services/yelp/business-search';
+import yelpService from '../../../services/yelp';
 
 const yelpRouter = express.Router();
 
-// server for dummy API route
-yelpRouter.get('/businesses/search', asyncWrapper(bussinessSearch));
+yelpRouter.get('/businesses/search', asyncWrapper(yelpService.businessSearch));
+yelpRouter.get('/businesses/:businessId', asyncWrapper(yelpService.businessDetails));
+yelpRouter.get('/businesses/:businessId/reviews', asyncWrapper(yelpService.businessReviews));
 
 export default yelpRouter;
