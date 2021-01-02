@@ -10,7 +10,6 @@ const getBusinessSearch = async (req: express.Request, res: express.Response): P
 	if (!location) {
 		return res.status(400).json({ error: 'Location is required.' });
 	}
-	console.log('test');
 	let searchQuery = `location=${location}&limit=${SEARCH_LIMIT}`;
 	// TODO: Refactor into a helper function
 	searchQuery += term ? `&term=${term}` : '';
